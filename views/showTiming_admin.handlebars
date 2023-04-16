@@ -1,0 +1,221 @@
+<div class="main-body">
+    <div class="body-header">
+        <h4>Show Timing</h4>
+        <div class="content_btn">
+            <button type="button" class="btn btn-success " data-bs-toggle="modal"
+                data-bs-target="#timing_add-modal">Add</button>
+            <button id="delete_selected-movies" type="button" class="btn btn-danger ">Delete Selected</button>
+        </div>
+    </div>
+    <table id="table_timing" class="table">
+        <thead class="content_title">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Theatre</th>
+                <th scope="col">Movie</th>
+                <th scope="col">Start/End Date</th>
+                <th scope="col">Start/End Time</th>
+                <th scope="col">Price</th>
+                <th scope="col">Delete</th>
+                <th scope="col" colspan="2">Modify</th>
+            </tr>
+        </thead>
+        <tbody id="list_timing" class="content_list">
+            <tr>
+                <th scope="row">1</th>
+                <td>Ben Tre CGV</td>
+                <td>Black Panther</td>
+                <td>2023-04-13/2023-05-13</td>
+                <td>10:00:00/20:00:00</td>
+                <td>50$</td>
+                <td><label class="content_checkbox-outer"><input type="checkbox" id="timing1" class="content_checkbox"
+                            name="timing1"><span class="checkmark"></span></label></td>
+                <td><button type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
+                        data-bs-target="#timing_edit-modal">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="modal fade" id="timing_add-modal" tabindex="-1" aria-labelledby="timing_add-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable big_modal">
+            <div class="modal-content add_modal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="timing_add-label">Add Showtime</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Select Threatre</p>
+                    <div class="input-group flex-nowrap">
+                        <select id="timing_theatre-select" class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">Ben Tre CGV</option>
+                            <option value="2">Go Vap CGV</option>
+                            <option value="3">HCM CGV</option>
+                        </select>
+                    </div>
+                    <p>Select Movie</p>
+                    <div class="mb-3 add_image-outer">
+                        <select id="timing_movie-select" class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">End Game</option>
+                            <option value="2">Star War</option>
+                            <option value="3">Mario Bros</option>
+                        </select>
+                    </div>
+                    <p>Select Room</p>
+                    <div class="mb-3 add_image-outer">
+                        <select id="timing_movie-select" class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">2D/3D</option>
+                            <option value="2">4DX</option>
+                            <option value="3">IMAX</option>
+                        </select>
+                    </div>
+                    <div class="timing_date-outer">
+                        <div class="timing_date-large1">
+                            <p>Show Start Date</p>
+                            <div class="input-group flex-nowrap">
+                                <input type="date" id="start_date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="timing_date-large2">
+                            <p>Show End Date</p>
+                            <div class="input-group flex-nowrap">
+                                <input type="date" id="end_date" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timing_time-outer">
+                        <div class="timing_time-large1">
+                            <p>Show Start Time</p>
+                            <div class="input-group flex-nowrap">
+                                <input type="time" id="start_time" class="form-control">
+                            </div>
+                        </div>
+                        <div class="timing_time-large2">
+                            <p>Show End Time</p>
+                            <div class="input-group flex-nowrap">
+                                <input type="time" id="end_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timing_price-outer">
+                        <p>Price</p>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" id="price_movie" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="btn_add-movie" class="btn btn-primary" data-bs-dismiss="modal">Add
+                        Showtime</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="movies_edit-modal" tabindex="-1" aria-labelledby="movies_edit-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable big_modal">
+            <div class="modal-content add_modal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="movies_edit-label">Edit Movie</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Movie Name</p>
+                    <div class="input-group flex-nowrap">
+                        <input type="text" id="movie_name-edit" class="form-control" placeholder="Enter movie name">
+                    </div>
+                    <p>Movie Poster</p>
+                    <div class="mb-3 add_image-outer">
+                        <input class="form-control" type="file" id="movie_img-edit">
+                    </div>
+                    <p>Movie Trailer Link</p>
+                    <div class="input-group flex-nowrap">
+                        <input type="text" id="movie_trailer-edit" class="form-control"
+                            placeholder="Enter movie trailer link">
+                    </div>
+                    <p>Movie Duration</p>
+                    <div class="input-group flex-nowrap">
+                        <input type="date" id="movie_duration-edit" class="form-control"
+                            placeholder="Enter movie duration (s)">
+                    </div>
+                    <p>Movie Release Date</p>
+                    <div class="input-group flex-nowrap">
+                        <input type="date" id="movie_rel_date-edit" class="form-control">
+                    </div>
+                    <p>Movie Description</p>
+                    <div class="input-group flex-nowrap">
+                        <textarea class="form-control" id="movie_des-edit" rows="3"
+                            placeholder="Enter movie description"></textarea>
+                    </div>
+                    <p>Movie Category</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col_movie_checkbox">
+                                <label for="" class="category_title">Action</label>
+                                <label class="movies_checkbox-outer"><input type="checkbox" class="movies_checkbox"
+                                        name="movie_category-edit" value="action"><span
+                                        class="checkmark"></span></label>
+                            </div>
+                            <div class="col col_movie_checkbox">
+                                <label for="" class="category_title">Comedy</label>
+
+                                <label class="movies_checkbox-outer"><input type="checkbox" class="movies_checkbox"
+                                        name="movie_category-edit" value="comedy"><span
+                                        class="checkmark"></span></label>
+                            </div>
+                            <div class="col col_movie_checkbox">
+                                <label for="" class="category_title">Drama</label>
+                                <label class="movies_checkbox-outer"><input type="checkbox" class="movies_checkbox"
+                                        name="movie_category-edit" value="drama"><span class="checkmark"></span></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_movie_checkbox">
+                                <label for="" class="category_title">Fantasty</label>
+                                <label class="movies_checkbox-outer"><input type="checkbox" class="movies_checkbox"
+                                        name="movie_category-edit" value="fantasty"><span
+                                        class="checkmark"></span></label>
+                            </div>
+                            <div class="col col_movie_checkbox">
+                                <label for="" class="category_title">Romance</label>
+                                <label class="movies_checkbox-outer"><input type="checkbox" class="movies_checkbox"
+                                        name="movie_category-edit" value="romance"><span
+                                        class="checkmark"></span></label>
+                            </div>
+                            <div class="col col_movie_checkbox">
+                                <label for="" class="category_title">Horror</label>
+                                <label class="movies_checkbox-outer"><input type="checkbox" class="movies_checkbox"
+                                        name="movie_category-edit" value=""><span class="checkmark"></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Movie Status</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col_movie_radio">
+                                <label for="" class="status_title">Now</label>
+                                <label class="movies_checkbox-outer"><input type="radio" class="movies_checkbox"
+                                        name="movie_status-edit" value="now"><span
+                                        class="checkmark checkmark_radio"></span></label>
+                            </div>
+                            <div class="col col_movie_radio">
+                                <label for="" class="status_title">Up Coming</label>
+                                <label class="movies_checkbox-outer"><input type="radio" class="movies_checkbox"
+                                        name="movie_status-edit" value="upcoming"><span
+                                        class="checkmark checkmark_radio"></span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="btn_edit-movie" class="btn btn-primary" data-bs-dismiss="modal">Edit
+                        Movie</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
